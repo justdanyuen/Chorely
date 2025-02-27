@@ -8,14 +8,6 @@ With Chorely, managing chores becomes more organized, reducing frustration, and 
 
 ## Features  
 
-### Sidebar Manager  
-The Sidebar Manager serves as the control panel for managing household tasks and roommates. It provides an intuitive interface for adding, editing, and removing tasks or participants.  
-
-- **Task Management** – Users can add new chores, mark them as completed, and delete tasks when necessary.  
-- **Roommate List** – A dedicated section for adding and managing roommates, ensuring everyone is included in the chore rotation.  
-- **Task Completion Tracking** – Users can toggle task completion status to keep track of responsibilities.  
-- **Calendar Toggle** – A quick-access button to view the Calendar View, allowing users to see upcoming schedules.  
-
 ---
 
 ### Header Component Overview
@@ -27,6 +19,16 @@ The Header component provides site-wide navigation and theme control for Chorely
 - **Responsive Design** - Ensures usability across different screen sizes with a clean, accessible layout.
 This component serves as a persistent, user-friendly navigation bar, making it easy to move through the application while maintaining a visually cohesive experience.
 
+
+### Sidebar Manager  
+The Sidebar Manager serves as the control panel for managing household tasks and roommates. It provides an intuitive interface for adding, editing, and removing tasks or participants.  
+
+- **Task Management** – Users can add new chores, mark them as completed, and delete tasks when necessary.  
+- **Roommate List** – A dedicated section for adding and managing roommates, ensuring everyone is included in the chore rotation.  
+- **Task Completion Tracking** – Users can toggle task completion status to keep track of responsibilities.  
+- **Calendar Toggle** – A quick-access button to view the Calendar View, allowing users to see upcoming schedules.  
+
+
 ### Schedule Viewer  
 The Schedule Viewer provides a dynamic, week-by-week breakdown of assigned chores, ensuring every roommate knows their responsibilities. Tasks are fairly rotated among participants, adjusting to changes in group size and task preferences.  
 
@@ -36,12 +38,15 @@ The Schedule Viewer provides a dynamic, week-by-week breakdown of assigned chore
 - **Customization & Preferences** – Adjustments can be made to exclude certain roommates from specific tasks.  
 - **Dark Mode Support** – Adapts styling based on user preferences for a more comfortable viewing experience.
 
+
 ### Profile Page Overview
 The Profile Page provides a structured layout for displaying user information. Currently, it features placeholder content, including a default profile picture and sample user details. The design ensures a clean and organized presentation, with responsive styling for a seamless experience across different screen sizes.
 
 Moving forward, the vision for this page includes expanded customization options, allowing users to edit their profile details, upload a custom profile picture, and personalize their information. Future enhancements may also include additional fields, preferences, and integrations to make the profile experience more dynamic and user-driven.
 
 ### Currently version follows the initial MVP format, more features coming soon.
+
+---
 
 ## How to Run  
 
