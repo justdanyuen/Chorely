@@ -31,17 +31,25 @@ The Schedule Viewer provides a dynamic, week-by-week breakdown of assigned chore
 
 ### 1. Clone the Repository  
 Open your terminal and run:  
+```bash
 git clone https://github.com/yourusername/chorely.git
 cd chorely
+```
 
 ### 2. Install Dependencies
 Run the following command to install required packages:
+```
 npm install
+```
 
 ### 3. Install React Router
 Since Chorely uses React Router for navigation, install it with:
+```
 npm install react-router
+```
 
 ### 4. Start the Development Server
 Run the following command to start the application:
+```
 npm run dev
+```
