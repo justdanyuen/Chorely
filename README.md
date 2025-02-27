@@ -25,4 +25,28 @@ The Schedule Viewer provides a dynamic, week-by-week breakdown of assigned chore
 - **Task Rotation Algorithm** – Automatically distributes chores based on the week, ensuring fairness over time.  
 - **Navigation Controls** – Users can navigate between past and future weeks to review or plan upcoming assignments.  
 - **Customization & Preferences** – Adjustments can be made to exclude certain roommates from specific tasks.  
-- **Dark Mode Support** – Adapts styling based on user preferences for a more comfortable viewing experience.  
+- **Dark Mode Support** – Adapts styling based on user preferences for a more comfortable viewing experience.
+
+## How to Run  
+
+### 1. Clone the Repository  
+Open your terminal and run:  
+```bash
+git clone https://github.com/yourusername/chorely.git
+cd chorely
+
+### 2. Install Dependencies
+Run the following command to install required packages:
+
+bash
+Copy
+Edit
+npm install
+
+### 3. Install React Router
+Since Chorely uses React Router for navigation, install it with:
+npm install react-router
+
+### 4. Start the Development Server
+Run the following command to start the application:
+npm run dev
