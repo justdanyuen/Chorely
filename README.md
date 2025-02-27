@@ -8,8 +8,6 @@ With Chorely, managing chores becomes more organized, reducing frustration, and 
 
 ## Features  
 
----
-
 ### Header Component Overview
 The Header component provides site-wide navigation and theme control for Chorely. It includes the application’s logo, a dark mode toggle, and navigation links for seamless user interaction.
 
