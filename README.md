@@ -2,7 +2,9 @@
 
 Chorely is a web-based tool designed to help roommates fairly distribute and track household tasks. By providing a clear, centralized schedule, it reduces miscommunication and ensures that responsibilities are shared equitably. Users can customize tasks, set up rotating assignments, and adjust preferences to accommodate different schedules and needs.  
 
-With Chorely, managing chores becomes more organized, reducing frustration, and making shared living spaces run more smoothly.  
+With Chorely, managing chores becomes more organized, reducing frustration, and making shared living spaces run more smoothly.
+
+Within this application, I began with standard HTML/CSS for the the initial layout and design, and integrated React and Tailwind for more responsive design.
 
 ---
 
