@@ -1,0 +1,467 @@
+@import "tailwindcss";
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color, #f8f9fa);
+    color: var(--text-color, #333);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color, #1e3d58);
+    padding: 12px 24px;
+    height: 120px;
+    color: var(--accent-color, #f1e9d2);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+    max-height: 120px; /* Set a fixed height */
+    min-height: 100px;
+    max-width: 150px; /* Prevents excessive shrinking */
+    min-width: 100px; /* Ensures it does not become too small */
+    display: block;
+    object-fit: contain; /* Prevents distortion */
+}
+
+.navbar-links a {
+    margin-left: 16px;
+    text-decoration: none;
+    color: var(--accent-color, #f1e9d2);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: var(--hover-color, #61a5c2);
+}
+
+
+.sidebar {
+    width: 260px;
+    background-color: var(--secondary-color, #5fa8d3);
+    padding: 20px;
+    height: calc(100vh - 70px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Adds spacing between list items */
+}
+
+.sidebar-nav ul li {
+    margin: 14px 0; /* Increased margin for better spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-nav ul li a {
+    text-decoration: none;
+    color: var(--white, #fff);
+    background-color: transparent;
+    display: block;
+    padding: 14px 18px; /* Slightly increased padding for a larger clickable area */
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.1rem; /* Slightly larger font for better readability */
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: var(--hover-color, #61a5c2);
+    color: var(--white, #fff);
+}
+
+.dark-mode body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.dark-mode .navbar {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.dark-mode .sidebar {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.dark-mode .task-list li {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.dark-mode .calendar-view,
+.dark-mode .schedule-view {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.dark-mode .task-button {
+    background-color: var(--hover-color);
+}
+
+.dark-mode .task-button:hover {
+    background-color: var(--accent-color);
+}
+
+.dark-mode .delete-button {
+    background-color: #d32f2f;
+}
+
+.dark-mode .delete-button:hover {
+    background-color: #b71c1c;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--text-color, #ccc);
+    background-color: var(--white, #fff);
+    color: var(--text-color, #333);
+    font-size: 14px;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color, #1e3d58);
+    outline: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.task-button {
+    background-color: var(--primary-color, #1e3d58);
+    color: var(--white, #fff);
+    border: none;
+}
+
+.task-button:hover {
+    background-color: var(--hover-color, #0056b3);
+}
+
+.delete-button {
+    background-color: var(--accent-color, #dc3545);
+    color: var(--white, #fff);
+    border: none;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.delete-button:hover {
+    background-color: var(--hover-color, #b21f2d);
+}
+
+.task-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-top: 12px;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    background-color: var(--white, #fff);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: var(--text-color, #333);
+    transition: background 0.3s ease, transform 0.2s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+.task-list li:hover {
+    background-color: var(--background-color, #f8f9fa);
+    transform: scale(1.02);
+}
+
+.task-list li.completed {
+    text-decoration: line-through;
+    color: var(--text-color, #aaa);
+}
+
+.calendar-view {
+    width: 100%;
+    background-color: var(--white, #fff);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendar-header {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--secondary-color, #5fa8d3);
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Weekday Headers */
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.calendar-day {
+    background-color: var(--background-color, #f8f9fa);
+    color: var(--text-color, #333);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.calendar-day.current {
+    background-color: var(--primary-color, #1e3d58);
+    color: var(--white, #fff);
+    font-weight: bold;
+}
+
+.calendar-day:hover {
+    background-color: var(--hover-color, #61a5c2);
+    color: var(--white, #fff);
+}
+
+.calendar-day.faded {
+    color: #b0b0b0;
+}
+
+.schedule-view {
+    width: 100%;
+    background-color: var(--white, #fff);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.schedule-view h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.schedule-view ul {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule-view li {
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.schedule-view button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--primary-color, #1e3d58);
+    color: var(--white, #fff);
+    border: none;
+    margin-top: 10px;
+}
+
+.schedule-view button:hover {
+    background-color: var(--hover-color, #0056b3);
+}
+
+.app-container {
+    display: flex;
+    flex-direction: row; 
+    height: 100vh; 
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh; 
+    flex-shrink: 0;
+}
+
+.schedule-container {
+    flex: 1; 
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Mobile View (≤ 768px) - Stack Sidebar & ScheduleView */
+@media (max-width: 896px) {
+    .app-container {
+        flex-direction: column; /* Stack Sidebar & ScheduleView */
+        height: auto; /* Allow content to expand */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto; /* Let it size dynamically */
+        min-height: 200px; /* Prevent sidebar from being too small */
+    }
+
+    .schedule-container {
+        width: 100%;
+    }
+
+    .navbar-logo {
+        height: 50px; /* Slightly smaller for mobile */
+        max-width: 120px;
+        min-width: 90px;
+    }
+}
+
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+/* Profile Card */
+.profile-card {
+    background-color: var(--white, #fff);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Profile Image */
+.profile-pic {
+    border-radius: 50%;
+    border: 4px solid var(--primary-color, #1e3d58);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Profile Image Hover Effect */
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+/* Profile Text */
+.profile-card p {
+    font-size: 1rem;
+    color: var(--text-color, #333);
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile View (≤ 768px) */
+@media (max-width: 896px) {
+
+    .navbar-logo {
+        height: 50px; /* Slightly smaller for mobile */
+        max-width: 120px;
+        min-width: 90px;
+    }
+
+    .profile-section {
+        padding: 1.5rem;
+    }
+
+    .profile-card {
+        padding: 16px;
+        width: 90%;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-card p {
+        font-size: 0.9rem;
+    }
+
+    .profile-card p:first-child {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}
+
+/* Tablet View (769px - 1024px) */
+@media (min-width: 1024px) {
+    .profile-card {
+        padding: 24px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+}
+

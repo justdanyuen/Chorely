@@ -1,0 +1,22 @@
+/* colors */
+:root {
+    --primary-color: #2C3E50; /* Dark Blue Gray */
+    --secondary-color: #BDC3C7; /* Soft Silver Gray */
+    --accent-color: #4A90E2; /* Soft Sky Blue */
+    --hover-color: #95A5A6; /* Cool Gray */
+    --background-color: #ECF0F1; /* Light Cloud White */
+    --text-color: #2C3E50; /* Dark Blue Gray */
+    --white: #ffffff;
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+}
+
+.dark-mode {
+    --primary-color: #1B1F23; /* Almost Black */
+    --secondary-color: #2D3436; /* Dark Charcoal */
+    --accent-color: #4A90E2; /* Soft Sky Blue */
+    --hover-color: #95A5A6; /* Cool Gray */
+    --background-color: #121212; /* Darkest Gray */
+    --text-color: #EAEDED; /* Soft White Gray */
+}
