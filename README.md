@@ -27,6 +27,8 @@ The Schedule Viewer provides a dynamic, week-by-week breakdown of assigned chore
 - **Customization & Preferences** – Adjustments can be made to exclude certain roommates from specific tasks.  
 - **Dark Mode Support** – Adapts styling based on user preferences for a more comfortable viewing experience.
 
+### Currently version follows the initial MVP format, more features coming soon.
+
 ## How to Run  
 
 ### 1. Clone the Repository  
