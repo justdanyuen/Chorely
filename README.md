@@ -18,6 +18,15 @@ The Sidebar Manager serves as the control panel for managing household tasks and
 
 ---
 
+### Header Component Overview
+The Header component provides site-wide navigation and theme control for Chorely. It includes the application’s logo, a dark mode toggle, and navigation links for seamless user interaction.
+
+#### Key Features:
+- **Navigation Bar** - Displays the Chorely logo and provides quick access to the Homepage and Profile pages.
+- **Dark Mode Toggle** - Allows users to switch between light and dark themes for a personalized viewing experience.
+- **Responsive Design** - Ensures usability across different screen sizes with a clean, accessible layout.
+This component serves as a persistent, user-friendly navigation bar, making it easy to move through the application while maintaining a visually cohesive experience.
+
 ### Schedule Viewer  
 The Schedule Viewer provides a dynamic, week-by-week breakdown of assigned chores, ensuring every roommate knows their responsibilities. Tasks are fairly rotated among participants, adjusting to changes in group size and task preferences.  
 
@@ -26,6 +35,11 @@ The Schedule Viewer provides a dynamic, week-by-week breakdown of assigned chore
 - **Navigation Controls** – Users can navigate between past and future weeks to review or plan upcoming assignments.  
 - **Customization & Preferences** – Adjustments can be made to exclude certain roommates from specific tasks.  
 - **Dark Mode Support** – Adapts styling based on user preferences for a more comfortable viewing experience.
+
+### Profile Page Overview
+The Profile Page provides a structured layout for displaying user information. Currently, it features placeholder content, including a default profile picture and sample user details. The design ensures a clean and organized presentation, with responsive styling for a seamless experience across different screen sizes.
+
+Moving forward, the vision for this page includes expanded customization options, allowing users to edit their profile details, upload a custom profile picture, and personalize their information. Future enhancements may also include additional fields, preferences, and integrations to make the profile experience more dynamic and user-driven.
 
 ### Currently version follows the initial MVP format, more features coming soon.
 
