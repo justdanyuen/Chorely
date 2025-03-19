@@ -1,0 +1,195 @@
+### This is a comment
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{ "username": "newuser", "password": "password" }
+
+### A second example, each request should be delimited by a triple hash
+GET http://localhost:3000/api/roommates
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQyNDQ0MCwiaWF0IjoxNzQyMzM4MDQwfQ.c1LmUBwSKC7HMmgrZL5JnX67GQSmfB3bgWva9dO0apM
+
+### 1. Register a new user (should return 201 Created)
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username": "testuser1",
+    "password": "password"
+}
+
+### 2. Login with correct credentials (should return 200 + token)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "testuser1",
+    "password": "password"
+}
+
+### 3. Login with incorrect password (should return 401 Unauthorized)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "testuser1",
+    "password": "wrongpassword"
+}
+
+### 4. Login with non-existent user (should return 401 Unauthorized)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "nonexistentuser",
+    "password": "password"
+}
+
+### 5. Login with missing fields (should return 400 Bad request)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "",
+    "password": ""
+}
+
+
+###
+POST http://localhost:3000/api/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0MzE4NiwiaWF0IjoxNzQyMzU2Nzg2fQ.84bkCcfLQTjbC6EBbW3DsUn0YY6YxzSAfvUpKnsuQ5M
+Content-Type: application/json
+
+{
+    "text": "Buy groceries",
+    "createdBy": "testuser1"
+}
+
+###
+
+POST http://localhost:3000/api/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0MzE4NiwiaWF0IjoxNzQyMzU2Nzg2fQ.84bkCcfLQTjbC6EBbW3DsUn0YY6YxzSAfvUpKnsuQ5M
+Content-Type: application/json
+
+{
+    "text": "Finish project",
+    "createdBy": "testuser1"
+}
+
+###
+
+GET http://localhost:3000/api/tasks?createdBy=testuser1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0MzE4NiwiaWF0IjoxNzQyMzU2Nzg2fQ.84bkCcfLQTjbC6EBbW3DsUn0YY6YxzSAfvUpKnsuQ5M
+
+
+### Register a New User (Creates a new account)
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username": "testuser1",
+    "password": "password"
+}
+
+### Login with Correct Credentials (Returns JWT Token)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "testuser1",
+    "password": "password"
+}
+
+### Create a New Roommate (Authenticated)
+POST http://localhost:3000/api/roommates
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+{
+    "name": "ANOTHER USER",
+    "createdBy": "testuser1"
+}
+
+### Fetch All Roommates (Authenticated)
+GET http://localhost:3000/api/roommates
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+### Fetch Roommates Created by testuser1 (Authenticated)
+GET http://localhost:3000/api/roommates?createdBy=testuser1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+### Delete a Roommate by ID (Authenticated)
+DELETE http://localhost:3000/api/roommates/65e987654321abcd87654321
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+
+### Delete a Roommate by Name and CreatedBy (Authenticated)
+DELETE http://localhost:3000/api/roommates
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+{
+    "name": "ANOTHER USER",
+    "createdBy": "testuser1"
+}
+
+### Create a Task (Authenticated)
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+{
+    "text": "Buy groceries",
+    "createdBy": "testuser1"
+}
+### Fetch All Tasks (Authenticated)
+GET http://localhost:3000/api/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+
+### Fetch Tasks Created by testuser1 (Authenticated)
+GET http://localhost:3000/api/tasks?createdBy=testuser1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+### Update a Task (Authenticated)
+PATCH http://localhost:3000/api/tasks/65e987654321abcd87654321
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+{
+    "text": "Buy groceries and cook dinner",
+    "completed": true
+}
+
+### Delete a Task by Name and CreatedBy (Authenticated)
+DELETE http://localhost:3000/api/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsImV4cCI6MTc0MjQ0NDMyNiwiaWF0IjoxNzQyMzU3OTI2fQ.PA1CbD3lNJ-kYAG1esPJIsMoUyWVyzNVZufSgUTeyWU
+
+{
+    "text": "Buy groceries",
+    "createdBy": "testuser1"
+}
+
+###
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username": "newuser",
+    "password": "password"
+}
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXIiLCJpYXQiOjE3NDIzNTkyNzgsImV4cCI6MTc0MjQ0NTY3OH0.0pAPcf57k0WhPr9gaGYLLrLHabuJ7QnyEd0FzC8buew
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "newuser",
+    "password": "password"
+}
+
+###
+GET http://localhost:3000/api/tasks
+Authorization: Bearer <PASTE_YOUR_JWT_TOKEN_HERE>

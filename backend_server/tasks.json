@@ -1,0 +1,37 @@
+[
+    {
+      "_id": "65f2c1e8a1b2c3d4e5f67890",
+      "text": "Take out the trash",
+      "completed": false,
+      "createdAt": "2025-03-18T08:30:00Z",
+      "createdBy": "user_123"
+    },
+    {
+      "_id": "65f2c1e8a1b2c3d4e5f67891",
+      "text": "Wash the dishes",
+      "completed": true,
+      "createdAt": "2025-03-17T12:45:00Z",
+      "createdBy": "user_456"
+    },
+    {
+      "_id": "65f2c1e8a1b2c3d4e5f67892",
+      "text": "Vacuum the living room",
+      "completed": false,
+      "createdAt": "2025-03-16T15:00:00Z",
+      "createdBy": "user_123"
+    },
+    {
+      "_id": "65f2c1e8a1b2c3d4e5f67893",
+      "text": "Water the plants",
+      "completed": true,
+      "createdAt": "2025-03-15T09:15:00Z",
+      "createdBy": "user_789"
+    },
+    {
+      "_id": "65f2c1e8a1b2c3d4e5f67894",
+      "text": "Mop the kitchen floor",
+      "completed": false,
+      "createdAt": "2025-03-14T18:00:00Z",
+      "createdBy": "user_456"
+    }
+]

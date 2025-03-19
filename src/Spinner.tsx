@@ -1,6 +1,10 @@
-export function Spinner({className}) {
+interface SpinnerProps {
+    className?: string;
+}
+
+export function Spinner({ className }: SpinnerProps) {
     const defaultClasses = "mr-3 -ml-1 size-5 animate-spin ";
-    // If className is undefined, don't want to append the string "undefined", but rather just an empty string
+    // Ensure className is a string, default to an empty string if undefined
     const additionalClasses = className || "";
 
     return (
@@ -10,7 +14,7 @@ export function Spinner({className}) {
             fill="none"
             viewBox="0 0 24 24"
         >
-            <circle className="opacity-25" cx="12" cy = "12" r="10" stroke="currentColor" strokeWidth="4" />
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path
                 className="opacity-75"
                 fill="currentColor"

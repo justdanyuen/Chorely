@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { startOfWeek, addWeeks, subWeeks, format, differenceInWeeks } from "date-fns";
+import { Task } from "./types";
 
-export default function ScheduleView({ tasks = [], roommates = [], darkMode }) {
-    const [currentWeek, setCurrentWeek] = useState(startOfWeek(new Date()));
-    const [assignedTasks, setAssignedTasks] = useState({});
+type ScheduleViewProps= {
+    tasks: Task[];
+    roommates: string[];
+    darkMode: boolean;
+    fetchData: () => Promise<void>; // ✅ Add fetchData
+    };
+
+export default function ScheduleView({ tasks = [], roommates = [], darkMode, fetchData }: ScheduleViewProps) {
+    const [currentWeek, setCurrentWeek] = useState<Date>(startOfWeek(new Date()));
+    const [assignedTasks, setAssignedTasks] = useState<Record<string, string[]>>({});
 
     useEffect(() => {
         // If no tasks or roommates, reset assignments
@@ -12,7 +20,7 @@ export default function ScheduleView({ tasks = [], roommates = [], darkMode }) {
             return;
         }
 
-        const taskMap = {};
+        const taskMap: Record<string, string[]> = {};
         const sortedRoommates = [...roommates]; // Keep roommate order fixed
         const weekOffset = differenceInWeeks(currentWeek, startOfWeek(new Date()));
 

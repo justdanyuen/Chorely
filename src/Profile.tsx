@@ -1,6 +1,11 @@
-import PlaceholderProfile from "./PlaceholderProfile.jpg";
+import React from "react";
+import PlaceholderProfile from "./imgs/PlaceholderProfile.jpg";
 
-export default function Profile() {
+interface ProfileProps {
+    darkMode: boolean;
+}
+
+const Profile: React.FC<ProfileProps> = ({ darkMode}) => {
     return (
         <section className="content profile-section p-6 bg-gray-100 min-h-screen flex flex-col items-center">
             {/* Title */}
@@ -29,4 +34,6 @@ export default function Profile() {
             </div>
         </section>
     );
-}
+};
+
+export default Profile;

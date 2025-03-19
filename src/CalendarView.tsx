@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import { addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, endOfWeek, format, eachDayOfInterval } from "date-fns";
 import ScheduleView from "./ScheduleView";
 
-export default function CalendarView({ tasks, roommates }) {
-    const [currentMonth, setCurrentMonth] = useState(new Date());
-    const [selectedDate, setSelectedDate] = useState(null);
+interface CalendarViewProps {
+    tasks?: any[];
+    roommates?: any[];
+}
+
+export default function CalendarView({ tasks = [], roommates = [] }: CalendarViewProps): React.JSX.Element {
+    const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
     const handlePrevMonth = () => setCurrentMonth(subMonths(currentMonth, 1));
     const handleNextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
-    const handleDateClick = (day) => setSelectedDate(day);
+    const handleDateClick = (day: Date) => setSelectedDate(day);
     const handleCloseModal = () => setSelectedDate(null);
 
     const monthStart = startOfMonth(currentMonth);
@@ -43,7 +48,7 @@ export default function CalendarView({ tasks, roommates }) {
             <div className="grid grid-cols-7 gap-4">
                 {days.map(day => (
                     <div 
-                        key={day} 
+                        key={day.toISOString()} 
                         className={`
                             p-5 text-center rounded-lg cursor-pointer transition duration-200 text-lg
                             ${format(day, "MM") !== format(currentMonth, "MM") ? "text-gray-400" : "text-black"} 
@@ -56,6 +61,7 @@ export default function CalendarView({ tasks, roommates }) {
                 ))}
             </div>
 
+            {/* Future Modal Implementation */}
             {/* {selectedDate && (
                 <div className="fixed inset-0 bg-black bg-opacity-20 flex justify-center items-center p-6">
                     <div className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-lg">
@@ -70,7 +76,7 @@ export default function CalendarView({ tasks, roommates }) {
                                 ✕
                             </button>
                         </div>
-                        <ScheduleView tasks={tasks || []} roommates={roommates || []} />
+                        <ScheduleView tasks={tasks} roommates={roommates} />
                     </div>
                 </div>
             )} */}
