@@ -5,12 +5,23 @@ import { registerTaskRoutes } from "./routes/tasks";
 import { registerRoommateRoutes } from "./routes/roommates";
 import { registerAuthRoutes, verifyAuthToken } from "./routes/auth";
 import cors from "cors";
+import path from "path";
 
 dotenv.config();
+console.log(`STATIC_DIR from .env: ${process.env.STATIC_DIR}`);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const staticDir = path.resolve(__dirname, process.env.STATIC_DIR || "../../dist");
+console.log(`Resolved static file directory: ${staticDir}`);
 
+// Ensure the path is correctly logged before Express serves it
+if (!staticDir) {
+    console.error("STATIC_DIR is undefined. Make sure it is set in the .env file.");
+    process.exit(1);
+}
+
+app.use(express.static(staticDir));
 app.use(cors());
 app.use(express.json());
 
@@ -36,6 +47,11 @@ async function setUpServer() {
         registerAuthRoutes(app, mongoClient);
         registerTaskRoutes(app, mongoClient);
         registerRoommateRoutes(app, mongoClient);
+
+        app.get("*", (req, res) => {
+            console.log(`Serving index.html from: ${path.join(staticDir, "index.html")}`);
+            res.sendFile(path.join(staticDir, "index.html"));
+        });
 
         app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 
